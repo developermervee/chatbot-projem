@@ -2,9 +2,19 @@
 
 # Bu dosya, FastAPI uygulamasının ana dosyasıdır.
 
-# 1. Önce tüm importlar
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse
+
 app = FastAPI()
+
 app.mount("/static", StaticFiles(directory="frontend"), name="static")
+
+@app.get("/")
+async def root():
+    return RedirectResponse(url="/static/login.html")
+
+
 from fastapi import FastAPI, Depends, HTTPException, status, File, UploadFile
 import pandas as pd
 import io
