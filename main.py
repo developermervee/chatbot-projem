@@ -3,6 +3,8 @@
 # Bu dosya, FastAPI uygulamasının ana dosyasıdır.
 
 # 1. Önce tüm importlar
+app = FastAPI()
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
 from fastapi import FastAPI, Depends, HTTPException, status, File, UploadFile
 import pandas as pd
 import io
@@ -17,7 +19,7 @@ import models, schemas, security
 from database import engine, get_db
 from fastapi.staticfiles import StaticFiles
 
-app.mount("/static", StaticFiles(directory="frontend"), name="static")
+
 
 # 2. Veritabanı tabloları oluşturulur
 models.Base.metadata.create_all(bind=engine)
