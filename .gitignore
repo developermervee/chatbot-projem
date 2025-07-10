@@ -1,0 +1,11 @@
+# Sanal ortam klasörünü görmezden gel
+venv/
+
+# Veritabanı dosyasını görmezden gel
+chatbot.db
+
+# Python'un oluşturduğu cache klasörlerini görmezden gel
+__pycache__/
+
+# Visual Studio Code ayar klasörünü görmezden gel
+.vscode/
