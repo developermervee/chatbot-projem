@@ -15,6 +15,9 @@ from thefuzz import process
 
 import models, schemas, security
 from database import engine, get_db
+from fastapi.staticfiles import StaticFiles
+
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
 
 # 2. Veritabanı tabloları oluşturulur
 models.Base.metadata.create_all(bind=engine)
